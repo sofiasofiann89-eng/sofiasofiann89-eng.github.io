@@ -106,6 +106,32 @@
         .btn-join { background: #2AABEE; color: #fff; }
         .btn-skip { background: transparent; color: var(--text-sub); border: 1px solid var(--border); }
 
+        /* --- CUSTOM AD/NOTICE POPUP --- */
+        .custom-modal {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.85); z-index: 2500;
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0; visibility: hidden; transition: 0.4s; backdrop-filter: blur(5px);
+        }
+        .custom-modal.show { opacity: 1; visibility: visible; }
+        .custom-box {
+            background: var(--bg-card); width: 90%; max-width: 400px;
+            border-radius: 16px; padding: 30px 20px 20px 20px; text-align: center;
+            border: 1px solid var(--border);
+            transform: translateY(50px); transition: 0.4s;
+            position: relative;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        }
+        .custom-modal.show .custom-box { transform: translateY(0); }
+        .close-custom {
+            position: absolute; top: 15px; left: 15px;
+            font-size: 1.5rem; color: var(--text-sub); cursor: pointer;
+            transition: 0.2s;
+        }
+        .close-custom:hover { color: #fff; }
+        .custom-title { font-size: 1.2rem; font-weight: 800; color: #FFD700; margin-bottom: 15px; }
+        .custom-text { font-size: 0.95rem; color: var(--text-sub); line-height: 1.6; }
+
         /* --- SEARCH OVERLAY --- */
         #search-screen {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
@@ -208,6 +234,7 @@
         </div>
     </div>
 
+    <!-- نافذة تليجرام -->
     <div class="tg-modal" id="tgModal">
         <div class="tg-box">
             <div class="tg-icon"><i class="fab fa-telegram-plane"></i></div>
@@ -216,6 +243,22 @@
             <div class="tg-actions">
                 <button class="tg-btn btn-skip" onclick="closeTg()">تخطي</button>
                 <button class="tg-btn btn-join" onclick="window.open('https://t.me/tlmachteche', '_blank')">انضمام</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- نافذة الإعلانات أو البلاغات المخصصة -->
+    <div class="custom-modal" id="customModal">
+        <div class="custom-box">
+            <!-- زر إغلاق النافذة -->
+            <i class="fas fa-times close-custom" onclick="closeCustomModal()"></i>
+            
+            <div id="custom-content">
+                <!-- ========================================== -->
+                <!-- ضع السكربت الإعلاني أو النص الخاص بك هنا -->
+                <h3 class="custom-title">إعلان أو بلاغ هام</h3>
+                <p class="custom-text">يمكنك كتابة أي رسالة للمستخدمين هنا، أو مسح هذا النص ووضع الكود الخاص بشركة الإعلانات (سكربت).</p>
+                <!-- ========================================== -->
             </div>
         </div>
     </div>
@@ -381,7 +424,7 @@
         dev: "AnimeWitcher Team",
         ver: "1.3.6",
         size: "35 MB",
-        icon: "https://app.traidsoft.net/wp-content/uploads/2024/08/Anime-Witcher-Mod-Logo.webp",
+        icon: "https://static.wixstatic.com/media/3be632_535f72963f194455ae16ff404306d611~mv2.png/v1/fill/w_364,h_726,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/3be632_535f72963f194455ae16ff404306d611~mv2.png",
         banner: "https://blogger.googleusercontent.com/img/a/AVvXsEiaBh-7Hr-Ybm-TJMHHs4cDaAhwnNbK55d7lbnAWx7Jw-Y8kZYJWPv3yLQKT-CxeERonuSQnSEEPZTbTsR731pdZaAZVYKSj_gxgXV1kkAyKPPGm1cTkLwFxSxB_WjhhBHiB6MsUJkznqsCQc4NDS0W7hDNvtZkdigkvOhXN0OKNAwh7szBNPKGmlwTWebh",
         desc: "أفضل تطبيق لمشاهدة وتحميل الأنمي المترجم بجودة عالية وبدون إعلانات مزعجة.",
         link: "https://cuty.io/w7Dyc2HFq",
@@ -495,9 +538,6 @@
             "https://mbwhatsapp.ar.softmany.com/screenshots/7fwilaA4jGZ1lwBhUtHrhVyeNhZft3uOOsTKi8Ck.webp",
            "https://mbwhatsapp.ar.softmany.com/screenshots/7fwilaA4jGZ1lwBhUtHrhVyeNhZft3uOOsTKi8Ck.webp",
             "https://mbwhatsapp.ar.softmany.com/screenshots/7fwilaA4jGZ1lwBhUtHrhVyeNhZft3uOOsTKi8Ck.webp"
- 
-
-            
         ]
     },
     {
@@ -577,7 +617,7 @@
         icon: "https://dramaramadan.net/img/applogo_228x228.webp",
         banner: "https://dramaramadan.net/uploads/posters/7937e3535f4d6914ad63eef4686bcc68.jpg",
         desc: "أفضل تطبيق لمشاهدة جميع مسلسلات وبرامج رمضان الحصرية مجاناً وبجودة عالية بدون إعلانات مزعجة.",
-        link: "https://cuty.io/رابط_التحميل_هنا", // ركّز هنا، نسيتي الرابط فاش صيفطتي هاد التطبيق، حطو هنا
+        link: "https://cuty.io/رابط_التحميل_هنا", 
         screens: [
             "https://dramaramadan.net/uploads/posters/7937e3535f4d6914ad63eef4686bcc68.jpg",
             "https://dramaramadan.net/uploads/posters/2c2359e4a66a5c4ff6191ab5c2d0e968.jpg",
@@ -813,6 +853,7 @@
 ];
 
         let activeApp = null;
+        let downloadClickCount = 0; // متغير عداد ضغطات التحميل
 
         function init() {
             const swiperW = document.getElementById('slider-wrapper');
@@ -860,6 +901,7 @@
 
         function openApp(id) {
             hideAll();
+            downloadClickCount = 0; // تصفير عداد التحميل عند فتح تطبيق جديد
             activeApp = apps.find(a => a.id === id);
             document.getElementById('page-app').style.display = 'block';
             document.getElementById('d-title').innerText = activeApp.name;
@@ -877,7 +919,20 @@
         }
 
         function startDownload() {
-            if(activeApp && activeApp.link) window.location.href = activeApp.link;
+            if(activeApp && activeApp.link) {
+                downloadClickCount++; // زيادة العداد مع كل ضغطة
+                
+                if (downloadClickCount === 1) {
+                    // الضغطة الأولى: فتح رابط ادستيرا (قم بتغيير الرابط)
+                    window.open('رابط_ادستيرا_الخاص_بك_هنا', '_blank');
+                } else if (downloadClickCount === 2) {
+                    // الضغطة الثانية: فتح رابط مونيتاج (قم بتغيير الرابط)
+                    window.open('رابط_مونيتاج_الخاص_بك_هنا', '_blank');
+                } else {
+                    // الضغطة الثالثة وما بعدها: التحميل الفعلي
+                    window.location.href = activeApp.link;
+                }
+            }
         }
 
         function toggleMenu() {
@@ -905,10 +960,17 @@
             });
         }
 
+        /* --- وظائف نافذة تليجرام --- */
         function showTg() { document.getElementById('tgModal').classList.add('show'); }
         setTimeout(showTg, 2000); 
         setInterval(showTg, 180000);
-        function closeTg() { document.getElementById('tgModal').classList.remove('remove'); document.getElementById('tgModal').classList.remove('show'); }
+        function closeTg() { document.getElementById('tgModal').classList.remove('show'); }
+
+        /* --- وظائف النافذة المخصصة للإعلانات/البلاغات --- */
+        function showCustomModal() { document.getElementById('customModal').classList.add('show'); }
+        function closeCustomModal() { document.getElementById('customModal').classList.remove('show'); }
+        // عرض النافذة المخصصة بعد 5 ثواني من فتح الموقع (يمكنك تعديل الوقت هنا - 5000 تعني 5 ثواني)
+        setTimeout(showCustomModal, 5000); 
 
         window.onscroll = function() {
             if(document.getElementById('page-app').style.display === 'block') {
